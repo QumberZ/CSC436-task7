@@ -1,8 +1,32 @@
 body {
-  background-color: rgba(4, 22, 50, 0.705);
+  background-color: rgba(1, 45, 116, 0.705);
 }
 
 .arrow{
   font-size: 90px;
   margin-left: 430px;
+}
+
+.convert{
+  margin-left: 4px;
+}
+
+label{
+  font-size: 20px;
+  margin-left: 20px;
+  color: rgb(0, 209, 0);
+}
+
+th{
+  font-size: 17px;
+  color: blue;
+}
+tr{
+  font-size: 15px;
+  color: blue;
+}
+
+.sort{
+  font-size: 17px;
+  color: blue;
 }
