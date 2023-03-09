@@ -30,3 +30,14 @@ tr{
   font-size: 17px;
   color: blue;
 }
+
+#date{
+font-size: 20px;
+color: blue;
+}
+
+.convert{
+  font-size: 17px;
+  font-weight: bold;
+  color: rgb(28, 204, 28);
+}

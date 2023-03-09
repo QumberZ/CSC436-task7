@@ -20,9 +20,7 @@ function CurrencyConversionRates() {
 
   return (
     <div>
-      <section id="current-conversions-rates">
-        
-      </section>
+      <section id="current-conversions-rates"></section>
 
       <div class="flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -62,7 +60,7 @@ function CurrencyConversionRates() {
                           1
                         </td>
                         <td class="whitespace-nowrap px-6 py-4">
-                          $1 = {(1 / parseFloat(usdRate)).toFixed(8)} BTC
+                          $1 = {(0.001 / parseFloat(usdRate)).toFixed(8)} BTC
                         </td>
                         <td class="whitespace-nowrap px-6 py-4">
                           1 BTC = ${usdRate}
@@ -73,7 +71,7 @@ function CurrencyConversionRates() {
                     {eurRate && (
                       <>
                         <td class="whitespace-nowrap px-6 py-4">
-                          €1 = {(1 / parseFloat(eurRate)).toFixed(8)} BTC
+                          €1 = {(0.001 / parseFloat(eurRate)).toFixed(8)} BTC
                         </td>
                         <td class="whitespace-nowrap px-6 py-4">
                           1 BTC = €{eurRate}
@@ -83,7 +81,7 @@ function CurrencyConversionRates() {
                     {gbpRate && (
                       <>
                         <td class="whitespace-nowrap px-6 py-4">
-                          £1 = {(1 / parseFloat(gbpRate)).toFixed(8)} BTC
+                          £1 = {(0.001 / parseFloat(gbpRate)).toFixed(8)} BTC
                         </td>
                         <td class="whitespace-nowrap px-6 py-4">
                           1 BTC = £{gbpRate}
@@ -93,9 +91,7 @@ function CurrencyConversionRates() {
                   </tr>
                 </tbody>
               </table>
-              <h1 className="arrow">
-              ➠
-              </h1>
+              <h1 className="arrow">➠</h1>
             </div>
           </div>
         </div>
