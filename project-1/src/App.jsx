@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   const formatTime = (time) => {
     return new Date(time).toLocaleString();
