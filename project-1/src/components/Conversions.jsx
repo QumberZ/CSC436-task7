@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "flowbite";
 import "../App.css";
+import { getByTestId } from "@testing-library/react";
 
 function Conversions() {
   const [currencyRates, setCurrencyRates] = useState(null);
@@ -55,7 +56,9 @@ function Conversions() {
         Amount:
         <input type="number" value={amount} onChange={handleAmountChange} />
       </label>
-      <button className="convert" onClick={handleConvertClick}>
+    <button className="convert" onClick={handleConvertClick}
+    aria-label="conversion"
+    >
         <a
           href="#_"
           className="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block"
@@ -93,7 +96,7 @@ function Conversions() {
                     {sortedRates.map(([currency, { rate, rate_float }]) => (
                       <>
                         <tr
-                          key={currency}
+                          key={currency} data-testid="conversion"
                           className="border-b dark:border-neutral-500"
                         >
                           <>
@@ -115,7 +118,7 @@ function Conversions() {
           </div>
         </div>
       </div>
-      <button className="sort " onClick={handleSortClick}>
+      <button className="sort" data-testid="sort-button" onClick={handleSortClick}>
         <a
           href="#_"
           className="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-bloc"
