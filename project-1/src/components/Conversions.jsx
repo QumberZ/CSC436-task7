@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "flowbite";
-import "../App.css";
-import { getByTestId } from "@testing-library/react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import 'flowbite';
+import '../App.css';
+import { getByTestId } from '@testing-library/react';
 
 function Conversions() {
   const [currencyRates, setCurrencyRates] = useState(null);
   const [sortAscending, setSortAscending] = useState(true);
-  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(null);
 
   useEffect(() => {
     axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then((response) => setCurrencyRates(response.data.bpi))
       .catch((error) => console.error(error));
   }, []);
@@ -56,9 +56,11 @@ function Conversions() {
         Amount:
         <input type="number" value={amount} onChange={handleAmountChange} />
       </label>
-    <button className="convert" onClick={handleConvertClick}
-    aria-label="conversion"
-    >
+      <button
+        className="convert"
+        onClick={handleConvertClick}
+        aria-label="conversion"
+      >
         <a
           href="#_"
           className="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-block"
@@ -96,7 +98,8 @@ function Conversions() {
                     {sortedRates.map(([currency, { rate, rate_float }]) => (
                       <>
                         <tr
-                          key={currency} data-testid="conversion"
+                          key={currency}
+                          data-testid="conversion"
                           className="border-b dark:border-neutral-500"
                         >
                           <>
@@ -118,7 +121,11 @@ function Conversions() {
           </div>
         </div>
       </div>
-      <button className="sort" data-testid="sort-button" onClick={handleSortClick}>
+      <button
+        className="sort"
+        data-testid="sort-button"
+        onClick={handleSortClick}
+      >
         <a
           href="#_"
           className="px-5 py-2.5 relative rounded group font-medium text-white font-medium inline-bloc"
@@ -129,7 +136,7 @@ function Conversions() {
           <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
           <span className="relative">Sort Currency</span>
         </a>
-        {sortAscending ? "(Descending)" : "(Ascending)"}
+        {sortAscending ? '(Descending)' : '(Ascending)'}
       </button>
       <br />
     </div>

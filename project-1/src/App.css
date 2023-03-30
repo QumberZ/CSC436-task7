@@ -2,41 +2,41 @@ body {
   background-color: rgba(1, 45, 116, 0.705);
 }
 
-.arrow{
+.arrow {
   font-size: 90px;
   margin-left: 430px;
 }
 
-.convert{
+.convert {
   margin-left: 4px;
 }
 
-label{
+label {
   font-size: 20px;
   margin-left: 20px;
   color: rgb(0, 209, 0);
 }
 
-th{
+th {
   font-size: 17px;
   color: blue;
 }
-tr{
+tr {
   font-size: 15px;
   color: blue;
 }
 
-.sort{
+.sort {
   font-size: 17px;
   color: blue;
 }
 
-#date{
-font-size: 20px;
-color: blue;
+#date {
+  font-size: 20px;
+  color: blue;
 }
 
-.convert{
+.convert {
   font-size: 17px;
   font-weight: bold;
   color: rgb(28, 204, 28);

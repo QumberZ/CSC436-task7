@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "../App.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../App.css';
 
 function CurrencyConversionRates() {
   const [usdRate, setUsdRate] = useState(null);
@@ -9,7 +9,7 @@ function CurrencyConversionRates() {
 
   useEffect(() => {
     axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then((response) => {
         setUsdRate(response.data.bpi.USD.rate);
         setEurRate(response.data.bpi.EUR.rate);

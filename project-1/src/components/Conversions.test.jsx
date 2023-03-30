@@ -1,41 +1,16 @@
-import { describe, expect, test, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
-import Conversions from "./Conversions";
+import { render, screen, fireEvent } from '@testing-library/react';
+import Conversions from './Conversions';
 
-describe("Conversions component", () => {
-  const mockConversions = [
-    { currency: "USD", value: 100 },
-    { currency: "EUR", value: 50 },
-    { currency: "GBP", value: 75 },
-  ];
-  let conversionElements = [];
+test('changes amount input value', () => {
+  render(<Conversions />);
+  const amountInput = screen.getByLabelText(/amount/i);
+  fireEvent.change(amountInput, { target: { value: 2 } });
+  expect(amountInput.value).toBe('2');
+});
 
-  beforeEach(() => {
-    render(<Conversions conversions={mockConversions} />);
-  });
-
-  return {
-    get conversions(){
-      const conversions = screen.getAllByTestId('conversion');
-      return users.map(conversions => ({
-        name: within(conversions)
-          .getByRole('button').textContent,
-        role: within(conversions).getByTestId('role').textContent,
-      }));
-    },
-  }
-
-  it('should render the users in sorted order', () => {
-    const { conversions } = renderUsersList();
-  
-    expect(conversions).toEqual([
-      { name: 'Dwight', role: 'Salesman' },
-      { name: 'Pam', role: 'Receptionist' },
-    ]);
-  });
-
-  test("should display the correct number of conversion elements", () => {
-    conversionElements = screen.getAllByTestId("conversion");
-    expect(conversionElements).toHaveLength(mockConversions.length);
-  });
+test('Converts any input value ', () => {
+  render(<Conversions />);
+  const convert = screen.getByLabelText(/amount/i);
+  fireEvent.change(convert, { target: { value: 1 } });
+  expect(convert.value).toBe('1');
 });

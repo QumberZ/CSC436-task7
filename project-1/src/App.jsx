@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import CurrencyConversionRates from "./components/CurrencyConversionRates";
-import Conversions from "./components/Conversions";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import './App.css';
+import CurrencyConversionRates from './components/CurrencyConversionRates';
+import Conversions from './components/Conversions';
+import axios from 'axios';
 
 function App() {
-  const [componentToShow, setComponentToShow] = useState("filter");
+  const [componentToShow, setComponentToShow] = useState('filter');
   const [lastRefreshedTime, setLastRefreshedTime] = useState(null);
   const [refreshDisabled, setRefreshDisabled] = useState(true);
   const [dataDate, setDataDate] = useState(null);
   const fetchData = () => {
     axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then((response) => {
         setDataDate(response.data.time.updated);
         setLastRefreshedTime(new Date().toLocaleString());
@@ -22,11 +22,11 @@ function App() {
   };
 
   const refetchData = () => {
-    const lastRefreshTime = localStorage.getItem("fiveMinutesRefresh");
+    const lastRefreshTime = localStorage.getItem('fiveMinutesRefresh');
     const time = Date.now();
 
     if (!lastRefreshTime || time - lastRefreshTime > 5 * 60 * 1000) {
-      localStorage.setItem("fiveMinutesRefresh", time);
+      localStorage.setItem('fiveMinutesRefresh', time);
     } else {
       alert(`You can only refresh the page every 5 minutes`);
       return false;
@@ -44,11 +44,11 @@ function App() {
   };
 
   const CurrencyConversionHandler = () => {
-    setComponentToShow("currency-conversion");
+    setComponentToShow('currency-conversion');
   };
 
   const ConversionsHandler = () => {
-    setComponentToShow("conversions");
+    setComponentToShow('conversions');
   };
 
   return (
@@ -119,10 +119,10 @@ function App() {
       </nav>
 
       <section className="py-5">
-        {componentToShow === "currency-conversion" && (
+        {componentToShow === 'currency-conversion' && (
           <CurrencyConversionRates />
         )}
-        {componentToShow === "conversions" && <Conversions />}
+        {componentToShow === 'conversions' && <Conversions />}
       </section>
       <div className="flex justify-between mb-2">
         <div id="date" className="text-sm font-medium text-gray-500">
